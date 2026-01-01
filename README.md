@@ -147,7 +147,7 @@ The first code cell in the notebook includes this verification step.
 
 2. **Open the notebook**:
    ```
-   STAT_940_Assignment1.ipynb
+   cnn_regularization_cifar10.ipynb
    ```
 
 3. **Run all cells** sequentially or use "Run All" from the menu
@@ -162,8 +162,8 @@ The first code cell in the notebook includes this verification step.
 
 ```
 deep-learning-cnn-regularization-cifar10/
-├── STAT_940_Assignment1.ipynb  # Main notebook with all experiments
-├── README.md                    # Project documentation
+├── cnn_regularization_cifar10.ipynb  # Main notebook with all experiments
+├── README.md                         # Project documentation
 ├── requirements.txt             # Core dependencies
 ├── requirements-macos.txt       # macOS-specific (Apple Silicon)
 ├── requirements-other.txt       # Windows/Linux dependencies
