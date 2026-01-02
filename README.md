@@ -253,7 +253,7 @@ Misclassified samples reveal common confusion patterns between visually similar 
 
 | Hardware | Approximate Time |
 |----------|-----------------|
-| Apple Silicon (M4) with Metal GPU | ~30 minutes |
+| Apple Silicon (M4) with Metal GPU | ~50 minutes |
 | NVIDIA GPU (3070ti) | __ minutes |
 will update with NVIDIA gpu runtime after testing
 **Note**: Epochs are set to 10 for faster experimentation. For full training (100 epochs), multiply times by ~10.
