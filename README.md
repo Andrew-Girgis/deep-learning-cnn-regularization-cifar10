@@ -157,6 +157,7 @@ The first code cell in the notebook includes this verification step.
    - `best_model_accuracy.png` - Training accuracy curves
    - `best_model_loss.png` - Training loss curves
    - `misclassified_samples.png` - Error analysis
+   - `confusion_matrix.png` - Confusion matrix heatmap
 
 ## Project Structure
 
@@ -173,6 +174,7 @@ deep-learning-cnn-regularization-cifar10/
 │   ├── best_model_accuracy.png
 │   ├── best_model_loss.png
 │   └── misclassified_samples.png
+│   └── confusion_matrix.png
 └── cifar-10-batches-py/        # Auto-downloaded dataset (gitignored)
 ```
 
@@ -226,6 +228,34 @@ Misclassified samples reveal common confusion patterns between visually similar 
 
 ![Misclassified Samples](assets/misclassified_samples.png)
 
+#### Confusion Matrix
+
+The confusion matrix provides a class-by-class view of where the model makes mistakes.
+
+![Confusion Matrix](assets/confusion_matrix.png)
+
+#### Most Common Misclassifications (Largest → Smallest)
+
+| Rank | True → Predicted | Errors | % of True Class |
+|---:|---|---:|---:|
+| 1 | Cat → Dog | 156 | 15.6% |
+| 2 | Dog → Cat | 155 | 15.5% |
+| 3 | Bird → Deer | 74 | 7.4% |
+| 4 | Truck → Automobile | 63 | 6.3% |
+| 5 | Automobile → Truck | 61 | 6.1% |
+| 6 | Deer → Horse | 59 | 5.9% |
+| 7 | Horse → Dog | 48 | 4.8% |
+| 8 | Airplane → Ship | 46 | 4.6% |
+| 9 | Ship → Airplane | 45 | 4.5% |
+| 10 | Frog → Cat | 44 | 4.4% |
+
+#### Insights
+
+- **Cat ↔ Dog (expected)**: These classes share similar textures/shapes at 32×32 resolution, so mutual confusion is a common and expected failure mode.
+- **Truck → Automobile (expected)**: Both are road vehicles with similar silhouettes; this pair is also commonly confused.
+- **Bird → Deer (unexpected relative to vehicles)**: This suggests the model sometimes relies on background/scene cues (e.g., outdoor settings) rather than class-defining features. The confusion matrix also shows non-trivial **Bird → Frog** errors, reinforcing that some “nature” classes can overlap in appearance at low resolution.
+- **Airplane ↔ Ship**: Another plausible pair where global shape + background (sky/water) can drive mistakes.
+
 ### Key Findings
 - **Depth**: Adding convolutional layers improved feature extraction
 - **Batch Normalization**: Significantly stabilized training and improved convergence speed
@@ -267,7 +297,9 @@ will update with NVIDIA gpu runtime after testing
 - Experiment with learning rate warm-up schedules
 - Test advanced optimizers (AdamW, RAdam)
 - Implement model ensembling for improved accuracy
-- Add confusion matrix and per-class accuracy analysis
+- Add per-class precision/recall/F1 and per-class accuracy reporting
+- Consider label smoothing and/or focal loss to reduce overconfident confusions
+- Try higher input resolution or lightweight attention (e.g., SE blocks) to better separate fine-grained pairs like cat vs. dog
 - Try transfer learning from pre-trained models (EfficientNet, Vision Transformer)
 - Implement gradient accumulation for larger effective batch sizes
 
