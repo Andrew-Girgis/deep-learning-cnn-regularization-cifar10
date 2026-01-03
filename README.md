@@ -68,7 +68,7 @@ The dataset is automatically downloaded when running the notebook via `tf.keras.
 #### macOS (Apple Silicon)
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/deep-learning-cnn-regularization-cifar10.git
+git clone https://github.com/Andrew-Girgis/deep-learning-cnn-regularization-cifar10.git
 cd deep-learning-cnn-regularization-cifar10
 
 # Create and activate virtual environment
@@ -83,7 +83,7 @@ pip install -r requirements-macos.txt
 #### Windows/Linux (CPU)
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/deep-learning-cnn-regularization-cifar10.git
+git clone https://github.com/Andrew-Girgis/deep-learning-cnn-regularization-cifar10.git
 cd deep-learning-cnn-regularization-cifar10
 
 # Create and activate virtual environment
@@ -95,10 +95,10 @@ pip install --upgrade pip
 pip install -r requirements-other.txt
 ```
 
-#### Windows/Linux (NVIDIA GPU)
+#### Linux (NVIDIA GPU)
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/deep-learning-cnn-regularization-cifar10.git
+git clone https://github.com/Andrew-Girgis/deep-learning-cnn-regularization-cifar10.git
 cd deep-learning-cnn-regularization-cifar10
 
 # Create and activate virtual environment
@@ -110,7 +110,7 @@ pip install --upgrade pip
 pip install -r requirements-nvidiagpu.txt
 ```
 
-**Note**: NVIDIA GPU setup requires [CUDA Toolkit and cuDNN](https://www.tensorflow.org/install/pip#hardware_requirements) to be installed separately.
+**Note**: NVIDIA GPU setup requires a compatible NVIDIA driver. When installing via `requirements-nvidiagpu.txt` (which uses `tensorflow[and-cuda]`), the CUDA/cuDNN runtime dependencies are typically installed via pip (so a separate CUDA Toolkit + cuDNN install is usually not needed). See TensorFlow's GPU requirements: https://www.tensorflow.org/install/pip#hardware_requirements
 
 ### GPU Verification
 
@@ -286,8 +286,6 @@ The confusion matrix provides a class-by-class view of where the model makes mis
 | macOS | Apple Silicon (M4) | Metal GPU | ~40 minutes |
 | Windows | Intel i9 | CPU (no CUDA) | ~44 minutes |
 | Linux | NVIDIA RTX 3070 Ti | CUDA GPU | **~9 minutes!!** |
-
-**Note**: Runtime scales roughly linearly with the `epochs` values used in training cells (e.g., 10 epochs is ~10× faster than 100 epochs).
 
 **Quick Testing**: To reduce runtime, modify `epochs=100` to `epochs=50` or `epochs=10` in training cells.
 
