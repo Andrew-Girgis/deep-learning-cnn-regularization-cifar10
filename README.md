@@ -281,15 +281,15 @@ The confusion matrix provides a class-by-class view of where the model makes mis
 
 **Full notebook execution time** (estimated):
 
-| Hardware | Approximate Time |
-|----------|-----------------|
-| Apple Silicon (M4) with Metal GPU [*MacOS*] | ~40 minutes |
-| Intel i9 with base Tensorflow (no CUDA) [*Windows*] | ~44 minutes |
-| NVIDIA GPU (3070ti) [*Linux*] | **~9 minutes!!** |
+| OS | Hardware | Acceleration | Approximate Time |
+|----|----------|--------------|------------------|
+| macOS | Apple Silicon (M4) | Metal GPU | ~40 minutes |
+| Windows | Intel i9 | CPU (no CUDA) | ~44 minutes |
+| Linux | NVIDIA RTX 3070 Ti | CUDA GPU | **~9 minutes!!** |
 
-**Note**: Epochs are set to 10 for faster experimentation. For full training (100 epochs), multiply times by ~10.
+**Note**: Runtime scales roughly linearly with the `epochs` values used in training cells (e.g., 10 epochs is ~10× faster than 100 epochs).
 
-**Quick Testing**: To reduce runtime, modify `epochs=10` to `epochs=5` in training cells.
+**Quick Testing**: To reduce runtime, modify `epochs=100` to `epochs=50` or `epochs=10` in training cells.
 
 ## Future Improvements
 
