@@ -279,7 +279,7 @@ The confusion matrix provides a class-by-class view of where the model makes mis
 
 ## Runtime
 
-**Full notebook execution time** (estimated):
+**Full notebook execution time** (tested):
 
 | OS | Hardware | Acceleration | Approximate Time |
 |----|----------|--------------|------------------|
